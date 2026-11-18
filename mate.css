@@ -1,0 +1,163 @@
+/* Launcher M.A.T.E. para VIDAA: diseno "Sticker".
+   Todo esta medido sobre un lienzo de 1280 x 720 (#lienzo) que mate.js escala a la pantalla.
+   Escrito para un navegador viejo: sin variables CSS, sin grid, sin "gap". */
+
+@font-face { font-family: "Outfit"; font-weight: 700; src: url("fuentes/outfit-700.ttf") format("truetype"); }
+@font-face { font-family: "Outfit"; font-weight: 800; src: url("fuentes/outfit-800.ttf") format("truetype"); }
+@font-face { font-family: "Outfit"; font-weight: 900; src: url("fuentes/outfit-900.ttf") format("truetype"); }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #FFF1CF; }
+body { font-family: "Outfit", sans-serif; color: #1B1437; }
+
+#lienzo {
+  position: absolute; left: 0; top: 0; width: 1280px; height: 720px; overflow: hidden;
+  -webkit-transform-origin: 0 0; transform-origin: 0 0;
+}
+.abs { position: absolute; }
+.papel-crema {
+  background-color: #FFF1CF;
+  background-image: -webkit-radial-gradient(circle, #F4DDA6 2.6px, transparent 3.2px);
+  background-image: radial-gradient(circle, #F4DDA6 2.6px, transparent 3.2px);
+  background-size: 26px 26px; background-position: 6px 6px;
+}
+.papel-lila {
+  background-color: #B9A7FF;
+  background-image: -webkit-radial-gradient(circle, #A994F7 2.6px, transparent 3.2px);
+  background-image: radial-gradient(circle, #A994F7 2.6px, transparent 3.2px);
+  background-size: 26px 26px; background-position: 6px 6px;
+}
+#inicio, #todas { left: 0; top: 0; width: 1280px; height: 720px; }
+
+/* ---------- M.A.T.E. ---------- */
+#disco { left: 48px; top: 250px; width: 380px; height: 380px; border-radius: 50%;
+  background: #B9A7FF; border: 5px solid #1B1437; box-shadow: 9px 9px 0 #1B1437; }
+#disco.foco { background: #FFD21F; }
+#piso { left: 136px; top: 649px; width: 208px; height: 22px; border-radius: 50%; background: #1B1437;
+  -webkit-animation: piso 1.5s ease-in-out infinite alternate; animation: piso 1.5s ease-in-out infinite alternate; }
+#mate-caja { left: 48px; top: 216px; width: 384px; height: 454px;
+  -webkit-animation: flotar 1.5s ease-in-out infinite alternate; animation: flotar 1.5s ease-in-out infinite alternate; }
+#mate { position: absolute; left: 0; bottom: 0; right: 0; margin: 0 auto; max-width: 384px; max-height: 454px;
+  -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; }
+#mate.salto { -webkit-animation: salto 0.2s ease-out; animation: salto 0.2s ease-out; }
+.quieto #mate-caja, .quieto #piso { -webkit-animation-play-state: paused; animation-play-state: paused; }
+@-webkit-keyframes flotar { from { -webkit-transform: translateY(0); } to { -webkit-transform: translateY(-6px); } }
+@keyframes flotar { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+@-webkit-keyframes piso { from { -webkit-transform: scale(1); } to { -webkit-transform: scale(0.9); } }
+@keyframes piso { from { transform: scale(1); } to { transform: scale(0.9); } }
+@-webkit-keyframes salto { 0% { -webkit-transform: translateY(0); } 50% { -webkit-transform: translateY(-8px); } 100% { -webkit-transform: translateY(0); } }
+@keyframes salto { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
+
+/* ---------- reloj y fecha ---------- */
+#reloj { left: 50px; top: 51px; height: 76px; padding: 0 22px; border-radius: 24px;
+  background: #fff; border: 4px solid #1B1437; box-shadow: 6px 6px 0 #1B1437;
+  font-weight: 900; font-size: 58px; line-height: 66px; letter-spacing: -1px; white-space: nowrap;
+  -webkit-transform: rotate(-2.5deg); transform: rotate(-2.5deg); }
+#fecha { left: 228px; top: 75px; height: 44px; padding: 0 18px; border-radius: 22px;
+  background: #FF9A4D; border: 4px solid #1B1437; box-shadow: 4px 5px 0 #1B1437;
+  font-weight: 800; font-size: 22px; line-height: 35px; white-space: nowrap;
+  -webkit-transform: rotate(1.5deg); transform: rotate(1.5deg); }
+
+/* ---------- botones: piezas de juguete ---------- */
+.boton { height: 60px; border-radius: 30px; background: #fff; border: 4px solid #1B1437;
+  box-shadow: 0 6px 0 #1B1437; padding: 6px 20px 0 7px; font-weight: 800; font-size: 24px;
+  line-height: 40px; white-space: nowrap;
+  -webkit-transition: -webkit-transform 0.14s ease-out; transition: transform 0.14s ease-out; }
+.boton .chip { float: left; width: 40px; height: 40px; border-radius: 50%; border: 3px solid #1B1437;
+  margin-right: 10px; padding: 5px; }
+.boton svg { display: block; width: 24px; height: 24px; }
+.boton.foco { background: #FFD21F; box-shadow: 0 10px 0 #1B1437; z-index: 8;
+  -webkit-transform: scale(1.12) rotate(-2deg); transform: scale(1.12) rotate(-2deg); }
+.boton.foco.apretado { box-shadow: none;
+  -webkit-transform: translateY(10px) scale(1.12) rotate(-2deg); transform: translateY(10px) scale(1.12) rotate(-2deg); }
+#botones { right: 48px; top: 52px; white-space: nowrap; }
+#botones .boton { display: inline-block; vertical-align: top; margin-left: 14px; position: relative; }
+#b-todas { left: 460px; top: 600px; height: 64px; border-radius: 32px; padding: 6px 22px 0 8px;
+  font-size: 26px; line-height: 44px; }
+#b-todas .chip { width: 44px; height: 44px; padding: 7px; background: #B9A7FF; }
+#b-todas .flecha { display: inline-block; vertical-align: -5px; margin-left: 8px; }
+
+/* ---------- globo ---------- */
+#globo { left: 452px; top: 152px; width: 632px; height: 116px; overflow: visible;
+  -webkit-transform-origin: 0 100%; transform-origin: 0 100%; }
+#globo.entra { -webkit-animation: globo 0.22s ease-out; animation: globo 0.22s ease-out; }
+@-webkit-keyframes globo { 0% { -webkit-transform: scale(0.86); } 70% { -webkit-transform: scale(1.03); } 100% { -webkit-transform: scale(1); } }
+@keyframes globo { 0% { transform: scale(0.86); } 70% { transform: scale(1.03); } 100% { transform: scale(1); } }
+#globo svg { position: absolute; left: 0; top: 0; width: 632px; height: 116px; overflow: visible; }
+#globo-txt { position: absolute; left: 0; top: 0; width: 632px; height: 110px; line-height: 110px;
+  text-align: center; font-weight: 900; font-size: 66px; letter-spacing: -1.5px; white-space: nowrap; }
+#saludo { left: 494px; top: 128px; height: 40px; padding: 0 15px; border-radius: 14px;
+  background: #35E0F2; border: 4px solid #1B1437; box-shadow: 4px 4px 0 #1B1437;
+  font-weight: 800; font-size: 22px; line-height: 31px; white-space: nowrap;
+  -webkit-transform: rotate(-4deg); transform: rotate(-4deg); }
+#destellos { left: 1118px; top: 162px; overflow: visible; }
+
+/* ---------- stickers de apps ---------- */
+.stk { position: absolute; width: 178px; height: 107px; border-radius: 22px; background: #fff;
+  border: 4px solid #1B1437; box-shadow: 5px 6px 0 #1B1437; padding: 4px;
+  -webkit-transition: -webkit-transform 0.14s ease-out; transition: transform 0.14s ease-out; }
+.stk .arte { display: block; width: 162px; height: 91px; border-radius: 14px; overflow: hidden; }
+.stk img.arte { object-fit: cover; }
+.stk div.arte { background: #B9A7FF; text-align: center; font-weight: 800; font-size: 22px; line-height: 26px;
+  padding: 19px 8px 0 8px; }
+.stk .fav { position: absolute; right: 8px; top: -18px; width: 36px; height: 36px; overflow: visible; }
+/* foco: el mismo banner 162 x 91 + filete de tinta 3 + aro amarillo 6 + tinta 5 = 190 x 119 */
+.stk.foco { background: #FFD21F; padding: 9px; width: 190px; height: 119px; border-width: 5px;
+  border-radius: 28px; box-shadow: 8px 10px 0 #1B1437; z-index: 5; }
+.stk.foco .arte { box-shadow: 0 0 0 3px #1B1437; }
+.stk.foco .fav { right: 10px; top: -19px; }
+.stk.foco.moviendo { background: #FF9A4D; }
+.stk.foco.apretado { box-shadow: none; }
+.etiqueta { position: absolute; z-index: 6; height: 36px; padding: 0 6px 0 16px; border-radius: 18px;
+  background: #1B1437; color: #fff; font-weight: 800; font-size: 22px; line-height: 36px; white-space: nowrap;
+  -webkit-transform: rotate(-3deg); transform: rotate(-3deg); }
+.etiqueta b { display: inline-block; height: 26px; min-width: 42px; padding: 0 9px; margin-left: 10px;
+  border-radius: 13px; background: #FFD21F; color: #1B1437; font-weight: 900; font-size: 20px;
+  line-height: 26px; text-align: center; vertical-align: 1px; }
+
+/* ---------- ayuda ---------- */
+.ayuda { height: 44px; line-height: 44px; font-weight: 700; font-size: 21px; white-space: nowrap; }
+.tecla { display: inline-block; height: 34px; padding: 0 12px; margin-right: 10px; border-radius: 12px;
+  background: #fff; border: 3px solid #1B1437; box-shadow: 0 4px 0 #1B1437; font-weight: 900; font-size: 20px;
+  line-height: 27px; vertical-align: 3px; }
+.sep { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #1B1437;
+  margin: 0 16px; vertical-align: 3px; }
+#ayuda-inicio { right: 48px; top: 610px; }
+#ayuda-todas { left: 48px; top: 606px; }
+
+/* ---------- panel de entradas ---------- */
+#entradas { right: 48px; top: 292px; width: 374px; padding: 14px; border-radius: 28px; background: #fff;
+  border: 4px solid #1B1437; box-shadow: 6px 6px 0 #1B1437; z-index: 20; display: none; }
+.fila { height: 54px; line-height: 48px; padding: 0 14px 0 18px; border-radius: 20px;
+  border: 3px solid transparent; font-weight: 800; font-size: 24px; white-space: nowrap; }
+.fila.foco { background: #FFD21F; border-color: #1B1437; }
+
+/* ---------- todas tus apps ---------- */
+#todas { display: none; z-index: 40; overflow: hidden; }
+#iris { left: 48px; top: 250px; width: 380px; height: 380px; border-radius: 50%; background: #B9A7FF;
+  z-index: 35; display: none; -webkit-transition: -webkit-transform 0.28s ease-in; transition: transform 0.28s ease-in; }
+#plancha { left: 0; top: 0; width: 1280px; -webkit-transition: -webkit-transform 0.22s ease-out; transition: transform 0.22s ease-out; }
+.franja { left: 0; width: 1280px; z-index: 7; display: none; }
+#franja-arriba { top: 0; height: 124px; }
+#franja-abajo { top: 596px; height: 124px; background-position: 6px -18px; }
+#t-titulo { left: 48px; top: 40px; height: 80px; font-weight: 900; font-size: 58px; line-height: 80px;
+  letter-spacing: -1.5px; white-space: nowrap; z-index: 8; }
+#t-cuenta { left: 478px; top: 49px; width: 62px; height: 62px; border-radius: 50%; background: #FF9A4D;
+  border: 4px solid #1B1437; box-shadow: 4px 5px 0 #1B1437; font-weight: 900; font-size: 30px; line-height: 53px;
+  text-align: center; z-index: 8; -webkit-transform: rotate(8deg); transform: rotate(8deg); }
+#t-leyenda { left: 572px; top: 56px; height: 44px; line-height: 44px; font-weight: 700; font-size: 22px;
+  white-space: nowrap; z-index: 8; }
+#t-leyenda svg { width: 30px; height: 30px; vertical-align: -7px; margin-right: 8px; overflow: visible; }
+#t-reloj { right: 52px; top: 50px; height: 60px; padding: 0 18px; border-radius: 20px; background: #fff;
+  border: 4px solid #1B1437; box-shadow: 5px 5px 0 #1B1437; font-weight: 900; font-size: 40px; line-height: 50px;
+  letter-spacing: -0.5px; z-index: 8; -webkit-transform: rotate(2deg); transform: rotate(2deg); }
+#t-disco { left: 1054px; top: 488px; width: 176px; height: 176px; border-radius: 50%; background: #FFF1CF;
+  border: 4px solid #1B1437; box-shadow: 5px 6px 0 #1B1437; z-index: 8; }
+#t-mate { left: 1056px; top: 444px; width: 176px; z-index: 9; }
+#t-globo { right: 248px; top: 600px; height: 56px; padding: 0 24px; border-radius: 28px; background: #fff;
+  border: 4px solid #1B1437; box-shadow: 5px 6px 0 #1B1437; font-weight: 800; font-size: 24px; line-height: 46px;
+  white-space: nowrap; z-index: 8; }
+#t-ayuda-capa { z-index: 8; }
+
+/* ---------- aviso (solo fuera del TV, para probar) ---------- */
+#aviso { left: 460px; top: 676px; font-weight: 700; font-size: 18px; color: #8a7a4a; display: none; }
