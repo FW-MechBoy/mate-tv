@@ -16,7 +16,7 @@
   var MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   var REACCIONES = [
     ['festejando', '¡Vamos!'], ['bailando', '¡A bailar!'], ['choque-de-manos-con-mateperro', '¡Chocá esos cinco!'],
-    ['jugando-con-mateperro', 'MATEPERRO quiere jugar'], ['riendose', 'Ja, ja, ja'], ['muerto-de-risa', '¡Me muero de risa!'],
+    ['jugando-con-mateperro', '¡El perrito quiere jugar!'], ['riendose', 'Ja, ja, ja'], ['muerto-de-risa', '¡Me muero de risa!'],
     ['doble-pulgar-arriba', '¡Todo bien por acá!'], ['guitarra-electrica', '¡Rock and roll!'], ['dj', '¡Subí el volumen!'],
     ['skate', '¡Mirá este truco!'], ['superheroe', '¡Al rescate!'], ['volando', '¡Despegue!'], ['trofeo', '¡Campeones!'],
     ['selfie', '¡Selfie!'], ['gol', '¡Gooool!'], ['guino', 'Guiño, guiño'], ['timido', 'Ay, me da vergüenza'],
