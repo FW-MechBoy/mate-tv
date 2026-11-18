@@ -7,7 +7,7 @@
      nativo  nombre interno de las apps que no son web. Una pagina no las puede abrir en VIDAA:
      boton   el boton del control que las abre; M.A.T.E. le dice a la familia que lo apriete
    Se dejaron afuera las partes del sistema (V Home, VIDAA Art, E-Manual), las apps internas sin boton en el control
-   (VIDAA Kids, la tienda, el navegador, Vod On Demand) y Apple TV, cuya direccion llego cortada. */
+   (VIDAA Kids, la tienda, el navegador, Vod On Demand). Direcciones actualizadas el 18-nov-2026. */
 var MATE_CONFIG = {
   apps: [
     { id: "1", nombre: "Netflix", banner: "img/apps/netflix.png", nativo: "netflix", boton: "Netflix" },
@@ -18,8 +18,9 @@ var MATE_CONFIG = {
     { id: "2256", nombre: "Spotify", banner: "img/apps/spotify.png", url: "https://api-partner.spotify.com/tvapp?platform=vidaa" },
     { id: "334", nombre: "Paramount+", banner: "img/apps/paramount-plus.png", url: "https://www.intl.paramountplus.com/smart-console-apps/vidaa/" },
     { id: "2655", nombre: "Mercado Play", banner: "img/apps/mercado-play.png", url: "https://play.meli.com/tv" },
-    { id: "240", nombre: "Flow", banner: "img/apps/flow.png", url: "http://newsan.tv/models/77aa10528def0be666f8d1cc29136312/app" },
+    { id: "240", nombre: "Flow", banner: "img/apps/flow.png", url: "http://newsan.tv/models/77aa10528def0be666f8d1cc29136312/apps/aaa5d81518c29bd0be44fb68a76d76be/open" },
     { id: "2372", nombre: "Crunchyroll", banner: "img/apps/crunchyroll.png", url: "https://www.crunchyroll.com/tetsuo/hisense-vidaa/" },
+    { id: "351", nombre: "Apple TV", banner: "img/apps/apple-tv.png", url: "https://atve.tv.apple.com/94819831-5404-4438-810e-afb648d6a826/tvw_1dc2aab0a313427dbc11818be8a18bd9/" },
     { id: "42", nombre: "Plex", banner: "", url: "https://app.plex.tv/tv-vidaa" },
     { id: "230", nombre: "MUBI", banner: "", url: "https://tv-production.mubi.com/vidaa/4.0.0/" },
     { id: "1617", nombre: "FreeTV", banner: "", url: "https://html5.freetv.com/" },
